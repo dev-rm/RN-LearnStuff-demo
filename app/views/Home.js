@@ -6,11 +6,13 @@ import { Menu } from '../sections/Menu.js';
 
 export class Home extends React.Component {
     render() {
+        const { navigate } = this.props.navigation;
+
         return (
             <View style={styles.container}>
                 <Header message = 'Press to Login' />
                 <Hero/>
-                <Menu/>
+                <Menu navigate = {navigate}/>
             </View>
         );
     }
