@@ -1,6 +1,29 @@
 import React from 'react';
-import { Text, View, FlatList, Image, TouchableWithoutFeddback } from 'react-native';
+import { Text, View, FlatList, Image, TouchableWithoutFeedback } from 'react-native';
 
+export class TubeItem extends React.Component {
+
+    onPress = () => {
+        console.log(this.props.id);
+    };
+
+    render() {
+        return (
+            <TouchableWithoutFeedback onPress={this.onPress}> 
+                <View style={{ paddingTop: 20, alignItems: 'center'}}>
+                <Image
+                    style={{width: '100%', height: 200}}
+                    source={{ uri: this.props.imageSrc }}
+                />
+                <Text>
+                    {this.props.title}
+                </Text>
+                </View>
+            </TouchableWithoutFeedback>
+
+        );
+    }
+}
 
 export class Video extends React.Component {
 
@@ -35,7 +58,7 @@ export class Video extends React.Component {
                         <FlatList
                             data={ this.state.videoList }
                             renderItem={({item}) =>
-                                <TubeItem
+                                <TubeItem 
                                     id={item.id.videoId}
                                     title={item.snippet.title}
                                     imageSrc={item.snippet.thumbnails.high.url}
@@ -50,30 +73,6 @@ export class Video extends React.Component {
                     </View>
                 )}
             </View>
-        );
-    }
-}
-
-export class TubeItem extends React.Component {
-
-    onPress = () => {
-        console.log(this.props.id);
-    };
-
-    render() {
-        return (
-            <TouchableWithoutFeddback onPress={this.onPress}> 
-                <View style={{ paddingTop: 20, alignItems: 'center'}}>
-                <Image
-                    style={{width: '100%', height: 200}}
-                    source={{ url: this.props.imageSrc }}
-                />
-                <Text>
-                    {this.props.title}
-                </Text>
-                </View>
-            </TouchableWithoutFeddback>
-
         );
     }
 }
