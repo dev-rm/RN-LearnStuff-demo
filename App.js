@@ -6,7 +6,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 
 import  {Video}  from './app/views/Video.js';
-
+import  {VideoDetail}  from './app/views/VideoDetail.js'
 
 const MyRoutes = createStackNavigator({
   HomeRT: {
@@ -17,6 +17,9 @@ const MyRoutes = createStackNavigator({
   },
   LessonsRT: {
     screen: Video
+  },
+  VideoDetailRT: {
+    screen: VideoDetail
   },
 },
 {
